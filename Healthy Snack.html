@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnackSmart - Healthy Snack Subscription Box</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .hero { background: linear-gradient(to right, #4CAF50, #8BC34A); color: white; text-align: center; padding: 100px 20px; }
+        .hero h1 { font-size: 3em; margin-bottom: 10px; }
+        .hero p { font-size: 1.5em; margin-bottom: 20px; }
+        .cta-button { background: #FF9800; color: white; padding: 15px 30px; font-size: 1.2em; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.3s; }
+        .cta-button:hover { background: #F57C00; }
+        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .features { background: #f9f9f9; }
+        .features h2, .plans h2 { text-align: center; font-size: 2.5em; margin-bottom: 40px; color: #4CAF50; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature { text-align: center; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .plans .plan { text-align: center; padding: 40px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .plans .plan:hover { transform: translateY(-10px); }
+        .plans .price { font-size: 3em; color: #4CAF50; font-weight: bold; }
+        .plans .button { background: #4CAF50; color: white; padding: 12px 25px; border: none; border-radius: 30px; cursor: pointer; font-size: 1.1em; margin-top: 20px; }
+        .subscription-form { background: white; max-width: 500px; margin: 0 auto; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; }
+        .subscription-form input { width: 70%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; font-size: 1.1em; }
+        .subscription-form button { width: 70%; padding: 15px; background: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; }
+        .success-msg { display: none; color: #4CAF50; font-size: 1.2em; margin-top: 20px; }
+        footer { background: #333; color: white; text-align: center; padding: 20px; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2em; } .hero p { font-size: 1.2em; } }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>SnackSmart</h1>
+        <p>Monthly healthy snacks delivered to your door – nuts, dried fruits, organic treats!</p>
+        <p>Perfect for busy people craving nutritious snacks without the shopping hassle.</p>
+        <a href="#plans" class="cta-button">Get Your First Box Now</a>
+    </header>
+
+    <section id="features" class="features">
+        <h2>Why SnackSmart?</h2>
+        <div class="grid">
+            <div class="feature">
+                <h3>Healthy Choices</h3>
+                <p>Nuts, dried fruits, and organic treats curated for nutrition and taste.</p>
+            </div>
+            <div class="feature">
+                <h3>Convenient Delivery</h3>
+                <p>Monthly boxes straight to your door – no research or shopping needed.</p>
+            </div>
+            <div class="feature">
+                <h3>Flexible Plans</h3>
+                <p>Choose small, medium, or large boxes to fit your snacking needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="plans" class="plans">
+        <h2>Choose Your Plan</h2>
+        <div class="grid">
+            <div class="plan">
+                <h3>Small Box</h3>
+                <p class="price">$19/month</p>
+                <p>5-7 snacks for personal use</p>
+                <button onclick="subscribe('Small')">Subscribe</button>
+            </div>
+            <div class="plan">
+                <h3>Medium Box</h3>
+                <p class="price">$35/month</p>
+                <p>10-15 snacks for sharing</p>
+                <button onclick="subscribe('Medium')">Subscribe</button>
+            </div>
+            <div class="plan">
+                <h3>Large Box</h3>
+                <p class="price">$55/month</p>
+                <p>20+ snacks for family/office</p>
+                <button onclick="subscribe('Large')">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="subscribe">
+        <div class="subscription-form">
+            <h2>Ready to Snack Smart?</h2>
+            <form id="subForm">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Start Subscription</button>
+            </form>
+            <p class="success-msg" id="success">Thanks for subscribing to SnackSmart! Your first box is on the way.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SnackSmart. Healthy snacking made simple. | Kuching, Sarawak</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('subForm');
+        const success = document.getElementById('success');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            success.style.display = 'block';
+            form.style.display = 'none';
+        });
+        function subscribe(size) {
+            document.getElementById('email').focus();
+            alert(`Great choice! Subscribe with your email for the ${size} box.`);
+        }
+    </script>
+</body>
+</html>
